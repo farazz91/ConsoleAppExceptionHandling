@@ -4,10 +4,20 @@ using System.IO;
 namespace ConsoleAppExceptionHandling
 {
     class Program
-    {
+    {        
         static void Main(string[] args)
         {
             StreamReader smrd=null;
+            //Custom exceptions
+            try
+            {
+                throw new UserLogInException("User has logged in alread.");                
+            }
+            catch(UserLogInException userExp)
+            {                
+                Console.WriteLine(userExp.Message);
+                Console.WriteLine();
+            }
             try
             {
                 try
